@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ffamily-heading: "Epilogue", sans-serif;
+  --ffamily-texting: "Open sans", sans-serif;
+
+  --background-primary: rgb(179, 83, 39);
+  --fc-primary: white;
+  --color-background: rgb(179, 83, 39);
+
+  font-size: 62.5%;
+  --fsize-body: 1.7rem;
+  --fsize-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+  --fsize-heading-sm: clamp(1rem, 0.5rem + 3vw, 4rem);
+
+}
+
+body {
+  font-family: var(--ffamily-texting);
+  font-size: var(--fsize-body);
+
+  background-color: var(--background-primary);
+  color: var(--PeH-primary);
+}
+
+.page {
+  max-width: clamp(33rem, 30rem + 60vw, 117rem);
+  padding: 0 5rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  .page {
+    max-width: 117rem;
+    padding: 0 5rem;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  main {
+    grid-template-areas: "colA colA colB" "colC colD colD";
+  }
+
+  main div:nth-child(1) {
+    grid-area: colA;
+  }
+
+  main div:nth-child(2) {
+    grid-area: colB;
+  }
+
+  main div:nth-child(3) {
+    grid-area: colC;
+  }
+
+  main div:nth-child(4) {
+    grid-area: colD;
+  }
+}
+
+
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+img:hover {}
+
+.card {
+  position: relative;
+
+  font-family: var(--ffamily-heading);
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.card img {
+  height: 42.0rem;
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  transition: all 200ms;
+
+  /* filter: brightness(0.5) saturate(1.0); */
+}
+
+.card h2 {
+  color: var(--background-primary);
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+
+  font-weight: 800;
+  font-size: var(--fsize-heading-sm);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.card h2 span {
+  border-radius: 2rem;
+  background-color: var(--color-background);
+
+  font-size: var(--fsize-body);
+  font-weight: 400;
+  color: var(--fc-primary);
+
+  width: fit-content;
+  padding: 0 1.6rem;
+  height: 3.8rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+header {
+  margin: 10rem 0 8rem;
+  font-family: var(--ffamily-heading);
+  color: var(--fc-primary);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  
+  text-align: center;
+  animation: topdow 800ms;
+  /* animation-duration: 800ms; */
+}
+
+header p {
+  color: var(--fc-primary);
+  text-transform: uppercase;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+  line-height: 3.2rem;
+
+  margin-bottom: 1.7rem;
+}
+
+header {
+  font-weight: 800;
+  font-size: var(--fsize-heading);
+  line-height: 4.0rem;
+}
+
+main {
+  display: grid;
+  /* grid-template-columns: 2fr 1fr; */
+  gap: 3.2rem;
+
+  padding-bottom: 10rem;
+  animation: downtop 800ms 350ms backwards;
+
+  /* display: flex;
+  flex-direction: column;
+  depois o gap */
+}
+
+
+/* main {
+  animation: downtop 800ms 350ms backwards;
+
+  Para substituir o 'backwards' utilizamos
+  animation: downtop 800ms 350ms forwards;
+  opacity: 0;
+  transform: traslateY(0);
+} */
+
+@keyframes topdow {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
